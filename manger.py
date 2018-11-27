@@ -6,7 +6,7 @@ from redis import StrictRedis
 class Config(object):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = "mysql://root:mysql@127.0.0.1:3306/python22"
-    SQLALCHEMY_TRACK_MODIFICATIONS = True
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     # redis数据库配置信息
     REDIS_HOST = "127.0.0.1"
