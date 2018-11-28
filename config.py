@@ -2,6 +2,7 @@ from redis import StrictRedis
 
 
 class Config(object):
+    """项目配置基类"""
     DEBUG = False
     SQLALCHEMY_DATABASE_URI = "mysql://root:mysql@127.0.0.1:3306/python22"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
@@ -18,3 +19,20 @@ class Config(object):
     SESSION_PERMANENT = False
 
     PERMANENT_SESSION_LIFETIME = 86400 # 24小时
+
+
+class DevelopmentConfig(Config):
+    """开发模式的项目配置信息"""
+    DEBUG = True
+
+
+class ProductionConfig(Config):
+    """线上模式的项目配置信息"""
+    DEBUG = True
+
+
+# 提供一个接口给外键使用
+config_dict = {
+    "development": DevelopmentConfig,
+    "production": ProductionConfig
+}
