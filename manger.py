@@ -1,9 +1,10 @@
 from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
-from info import create_app
+from info import create_app, db
 
 
 app = create_app("development")
+
 
 # class Config(object):
 #     #DEBUG = True
@@ -46,10 +47,6 @@ Migrate(app, db)
 # 8 添加迁移命令
 manger.add_command("db", MigrateCommand)
 
-
-@app.route('/')
-def index():
-    return 'hello world!'
 
 
 if __name__ == '__main__':
